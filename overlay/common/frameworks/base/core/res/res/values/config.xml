@@ -96,9 +96,6 @@
         <item>com.tencent.mm</item>
     </string-array>
 
-    <!-- Flag indicating which package name can access DeviceConfig table -->
-    <string name="config_deviceConfiguratorPackageName" translatable="false">org.protonaosp.deviceconfig</string>
-
     <!-- Whether safe headphone volume is enabled or not. -->
     <bool name="config_safe_media_volume_enabled">false</bool>
 
@@ -142,19 +139,9 @@
     <bool name="config_enableQrCodeScannerOnLockScreen">true</bool>
 
     <!-- Fingerprint from a certified device -->
-    <string name="config_certifiedFingerprint" translatable="false">google/cheetah/cheetah:13/TQ3A.230901.001/10750268:user/release-keys</string>
+    <string name="config_certifiedFingerprint" translatable="false">google/husky/husky:14/UD1A.230803.041/10808477:user/release-keys</string>
 
     <!-- Boolean indicating whether the HWC setColorTransform function can be performed efficiently
          in hardware. -->
     <bool name="config_setColorTransformAccelerated">true</bool>
-
-    <!-- Default list of files pinned by the Pinner Service -->
-    <string-array translatable="false" name="config_defaultPinnerServiceFiles">
-        <item>"/apex/com.android.art/javalib/core-oj.jar"</item>
-        <item>"/apex/com.android.art/javalib/core-libart.jar"</item>
-        <item>"/system/framework/framework.jar"</item>
-        <item>"/system/framework/services.jar"</item>
-        <item>"/system/bin/surfaceflinger"</item>
-        <item>"/system_ext/priv-app/StatixSystemUI/StatixSystemUI.apk"</item>
-    </string-array>
 </resources>

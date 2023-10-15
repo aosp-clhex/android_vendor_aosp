@@ -122,7 +122,7 @@ def fetch_query(remote_url, query):
 
 if __name__ == '__main__':
     # Default to Gerrit
-    default_gerrit = 'https://review.statixos.com'
+    default_gerrit = 'https://review.aospos.com'
 
     parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter, description=textwrap.dedent('''\
         repopick.py is a utility to simplify the process of cherry picking
@@ -370,9 +370,9 @@ if __name__ == '__main__':
                 print('Trying to fetch the change from GitHub')
 
             if args.pull:
-                cmd = ['git pull --no-edit statix', item['fetch'][method]['ref']]
+                cmd = ['git pull --no-edit aosp', item['fetch'][method]['ref']]
             else:
-                cmd = ['git fetch statix', item['fetch'][method]['ref']]
+                cmd = ['git fetch aosp', item['fetch'][method]['ref']]
             if args.quiet:
                 cmd.append('--quiet')
             else:
@@ -384,7 +384,7 @@ if __name__ == '__main__':
                 sys.exit(result)
         # Check if it worked
         if args.gerrit != default_gerrit or os.stat(FETCH_HEAD).st_size == 0:
-            # If not using the default gerrit or statix failed, fetch from gerrit.
+            # If not using the default gerrit or aosp failed, fetch from gerrit.
             if args.verbose:
                 if args.gerrit == default_gerrit:
                     print('Fetching from GitHub didn\'t work, trying to fetch the change from Gerrit')

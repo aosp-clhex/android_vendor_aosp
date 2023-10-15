@@ -8,29 +8,13 @@
 PRODUCT_PACKAGES += \
     librsjni
 
-# StatiX Packages
+# Packages
 PRODUCT_PACKAGES += \
-    CustomDoze \
     RepainterServicePriv \
-    SimpleDeviceConfig \
-    StatiXOSWalls \
-    QuickAccessWallet
-
-# App overrides
-PRODUCT_PACKAGES += \
-    StatixLauncher \
-    StatixSystemUI \
-    StatixSettings \
-    StatixThemePicker \
-    SystemUIFlagFlipper
 
 # Camera
 PRODUCT_PACKAGES += \
     Aperture
-
-# Preopt StatixSystemUI
-PRODUCT_DEXPREOPT_SPEED_APPS += \
-    StatixSystemUI
 
 # Google Pixel Launcher
 ifeq ($(INCLUDE_PIXEL_LAUNCHER),true)
@@ -39,7 +23,7 @@ PRODUCT_PACKAGES += \
 endif
 
 # Updaters
-ifeq ($(STATIX_BUILD_TYPE),OFFICIAL)
+ifeq ($(TARGET_SHIP_UPDATER),true)
 PRODUCT_PACKAGES += \
     Updater
 endif
@@ -55,4 +39,4 @@ PRODUCT_PACKAGES += \
     charger_res_images \
     product_charger_res_images
 
--include vendor/statix/config/overlay.mk
+-include vendor/aosp/config/overlay.mk

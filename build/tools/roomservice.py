@@ -31,7 +31,7 @@ from xml.etree import ElementTree
 PRODUCT = sys.argv[1]
 BRANCH = "tm"
 ORGANIZATION_NAME = "StatiXOS"
-DEPENDENCIES_FILE_NAME = "statix.dependencies"
+DEPENDENCIES_FILE_NAME = "aosp.dependencies"
 LOCAL_MANIFESTS_PATH = ".repo/local_manifests/"
 LOCAL_MANIFESTS_FILE_NAME = "electric_manifest.xml"
 CUSTOM_MANIFEST_NAME = "include.xml"
@@ -144,7 +144,7 @@ def add_dependencies(repos, is_initial_fetch):
                     continue
         else:
             if repo["branch"] == BRANCH and "remote" not in repo:
-                repo["remote"] = "statix"
+                repo["remote"] = "aosp"
             if is_initial_fetch:
                 repo["remote"] = get_primary_remote()
             if "remote" not in repo:

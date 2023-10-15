@@ -20,7 +20,7 @@ import json
 import sys
 
 def main():
-    """ Validates device statix.dependencies files to make sure nothing is missing when roomservice is run """
+    """ Validates device aosp.dependencies files to make sure nothing is missing when roomservice is run """
     if len(sys.argv) == 1:
         print("No dependencies file to validate!")
         return
@@ -44,7 +44,7 @@ def main():
 def suggest_edits(dependency):
     """ Suggests edits inline with roomservice expectations """
     if dependency['repository'].startswith("StatiXOS"):
-        print("For dependency {}, consider setting remote as 'statix' and removing the StatiXOS/ prefix".format(dependency['repository']))
+        print("For dependency {}, consider setting remote as 'aosp' and removing the StatiXOS/ prefix".format(dependency['repository']))
     if 'revision' in dependency:
         print("For dependency {}, change 'revision' to 'branch'".format(dependency['repository']))
 

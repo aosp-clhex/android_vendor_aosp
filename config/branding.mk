@@ -9,22 +9,10 @@ BUILD_DATE := $(shell date +%Y%m%d)
 
 ## Versioning System
 # Set all versions
-STATIX_BASE_VERSION := v6.3
-STATIX_PLATFORM_VERSION := 13
-
-# Use signing keys and don't print date & time in the final zip for official builds
-ifndef STATIX_BUILD_TYPE
-    STATIX_BUILD_TYPE := UNOFFICIAL
-endif
-
-ifeq ($(STATIX_BUILD_TYPE),OFFICIAL)
-    PRODUCT_DEFAULT_DEV_CERTIFICATE := ./.keys/releasekey
-    STATIX_VERSION := $(TARGET_PRODUCT)-$(BUILD_DATE)-$(STATIX_PLATFORM_VERSION)-$(STATIX_BASE_VERSION)-$(STATIX_BUILD_TYPE)
-else
-    STATIX_VERSION := $(TARGET_PRODUCT)-$(BUILD_DATE)-$(STATIX_PLATFORM_VERSION)-$(STATIX_BASE_VERSION)-$(STATIX_BUILD_TYPE)
-endif
+AOSP_BASE_VERSION := 14
+AOSP_PLATFORM_VERSION := 14
 
 # Fingerprint
-ROM_FINGERPRINT := StatiXOS/$(PLATFORM_VERSION)/$(STATIX_BUILD_TYPE)/$(BUILD_DATE)
-# Declare it's a StatiX build
-STATIX_BUILD := true
+ROM_FINGERPRINT := AOSP/$(PLATFORM_VERSION)/$(BUILD_DATE)
+# Declare it's a AOSP build
+AOSP_BUILD := true

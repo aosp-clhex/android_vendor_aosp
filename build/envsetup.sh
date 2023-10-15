@@ -9,9 +9,9 @@ EOF
 function breakfast()
 {
     target=$1
-    STATIX_DEVICES_ONLY="true"
+    aosp_DEVICES_ONLY="true"
     unset LUNCH_MENU_CHOICES
-    for f in `/bin/ls vendor/statix/vendorsetup.sh 2> /dev/null`
+    for f in `/bin/ls vendor/aosp/vendorsetup.sh 2> /dev/null`
         do
             echo "including $f"
             . $f
@@ -28,8 +28,8 @@ function breakfast()
             # A buildtype was specified, assume a full device name
             lunch $target
         else
-            # This is probably just the StatiX model name
-            lunch statix_$target-userdebug
+            # This is probably just the AOSP model name
+            lunch aosp_$target-userdebug
         fi
     fi
     return $?
@@ -51,12 +51,12 @@ function brunch()
 
 function repopick() {
     T=$(gettop)
-    $T/vendor/statix/build/tools/repopick.py $@
+    $T/vendor/aosp/build/tools/repopick.py $@
 }
 
 function aospmerge()
 {
     target_branch=$1
     T=$(gettop)
-    python3 $T/vendor/statix/scripts/merge-aosp.py target_branch
+    python3 $T/vendor/aosp/scripts/merge-aosp.py target_branch
 }
